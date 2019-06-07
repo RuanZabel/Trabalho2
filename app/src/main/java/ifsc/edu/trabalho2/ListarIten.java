@@ -19,11 +19,12 @@ public class ListarIten extends AppCompatActivity {
         ArrayList<ListaCompra> lista = new ArrayList<ListaCompra>();
         banco = new Banco(this);
         base = banco.conecao();
-        //Intent intent = this.getIntent();
-        //String idLista = intent.getStringExtra("anomes");
+        Intent intent = getIntent();
+        Bundle b = intent.getExtras();
+        String idLista = b.getString("anomes");
         //String id= intent.getStringExtra("desc");
        // startActivity(intent);
-        Log.i("valor","merda");
+        Log.i("valor",idLista);
         //Cursor cursor = base.rawQuery("select * from listaCompra order by codLista desc",null);
         //cursor.moveToFirst();
         //cursor.moveToFirst();
