@@ -1,5 +1,6 @@
 package ifsc.edu.trabalho2;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -48,6 +49,12 @@ public class ListarLista extends AppCompatActivity {
                 Log.i("teste","aqui"+position);
                 TextView anomes =(TextView) view.findViewById(R.id.textAnoMes);
                 TextView desc = (TextView) view.findViewById(R.id.textDescricao);
+                Intent intent =new Intent(ListarLista.this, ListarIten.class);
+                Log.i("vava",anomes.getText().toString());
+                String text = anomes.getText().toString();
+                intent.putExtra("anomes",text);
+                //intent.putExtra("desc",desc.getText().toString());
+                startActivity(intent);
 
             }
         });
