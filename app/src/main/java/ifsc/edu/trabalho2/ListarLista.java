@@ -26,7 +26,6 @@ public class ListarLista extends AppCompatActivity {
         base = banco.conecao();
         Cursor cursor = base.rawQuery("select * from listaCompra order by codLista desc",null);
         cursor.moveToFirst();
-        cursor.moveToFirst();
         do
         {
             ListaCompra listaCompra = new ListaCompra();
@@ -51,8 +50,8 @@ public class ListarLista extends AppCompatActivity {
                 TextView desc = (TextView) view.findViewById(R.id.textDescricao);
                 Intent intent =new Intent(ListarLista.this, ListarIten.class);
                 Log.i("vava",anomes.getText().toString());
-                String text = anomes.getText().toString();
-                intent.putExtra("anomes",text);
+                //String text = anomes.getText().toString();
+                //intent.putExtra("anomes",text);
                 //intent.putExtra("desc",desc.getText().toString());
                 startActivity(intent);
 
