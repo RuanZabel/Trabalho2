@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -16,7 +17,8 @@ import java.util.ArrayList;
 public class ListarIten extends AppCompatActivity {
     Banco banco;
     SQLiteDatabase base;
-    ArrayList<ItensCompra>item;
+    ArrayList<ItensCompra>item;;
+    String idLista;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +29,7 @@ public class ListarIten extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        String idLista = bundle.getString("id");
+        idLista = bundle.getString("id");
         //String id= intent.getStringExtra("desc");
         Log.i("valorsasa",idLista);
         Cursor cursor = base.rawQuery("select * from itensLista where codLista ='"+idLista+"'",null);
@@ -45,5 +47,45 @@ public class ListarIten extends AppCompatActivity {
         AdapterItens abapter=new AdapterItens(this,R.layout.listar,item);
         view.setAdapter(abapter);
 
+    }
+
+    public void excluirLista(View view) {
+        Button botao = (Button) findViewById(R.id.botaoExcluir);
+        botao.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                base.delete("itensLista","codLista ="+idLista,null);
+                base.delete("listaCompra","codLista ="+idLista,null);
+                Intent intent =new Intent(ListarIten.this, ListarLista.class);
+                startActivity(intent);
+            }
+
+        });
+
+    }
+
+    public void cadastrarItem(View view) {
+        Button botao = (Button) findViewById(R.id.botaoCadastrar);
+        botao.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(ListarIten.this, CadastrarItens.class);
+                intent.putExtra("id",idLista);
+                startActivity(intent);
+            }
+
+        });
+    }
+
+    public void voltar(View view) {
+        Button botao = (Button) findViewById(R.id.botaoVoltar);
+        botao.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(ListarIten.this, ListarLista.class);
+                startActivity(intent);
+            }
+
+        });
     }
 }

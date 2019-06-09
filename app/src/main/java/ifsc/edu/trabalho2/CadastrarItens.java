@@ -22,7 +22,7 @@ public class CadastrarItens extends AppCompatActivity {
 
     public void cadastrarItem(View view) {
         Intent intent = getIntent();
-        int idLista = Integer.parseInt(intent.getStringExtra("valor"));
+        int idLista = Integer.parseInt(intent.getStringExtra("id"));
         startActivity(intent);
         Log.i(" Resultado do idlista :",""+idLista);
         EditText produto = (EditText)findViewById(R.id.produto);

@@ -42,7 +42,7 @@ public class CadastrarLista extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent =new Intent(CadastrarLista.this, CadastrarItens.class);
-                intent.putExtra("valor",String.valueOf(valor));
+                intent.putExtra("id",String.valueOf(valor));
                 startActivity(intent);
             }
 
