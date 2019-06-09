@@ -7,6 +7,43 @@
     tools:context=".ListarIten">
 
     <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:id="@+id/list_item"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="31dp"
+        app:layout_constraintBottom_toTopOf="@+id/botaoExcluir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/botaoExcluir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Excluir"
+        app:layout_constraintBaseline_toBaselineOf="@+id/botaoCadastrar"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="excluirLista"/>
+
+    <Button
+        android:id="@+id/botaoCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginBottom="52dp"
+        android:text="Cadastrar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/botaoExcluir"
+        android:onClick="cadastrarItem"/>
+
+    <Button
+        android:id="@+id/botaoVoltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:text="Voltar"
+        app:layout_constraintBaseline_toBaselineOf="@+id/botaoCadastrar"
+        app:layout_constraintStart_toEndOf="@+id/botaoCadastrar"
+        android:onClick="voltar"/>
 </android.support.constraint.ConstraintLayout>

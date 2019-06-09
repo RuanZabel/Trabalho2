@@ -26,7 +26,6 @@ public class ListarLista extends AppCompatActivity {
         base = banco.conecao();
         Cursor cursor = base.rawQuery("select * from listaCompra order by codLista desc",null);
         cursor.moveToFirst();
-        cursor.moveToFirst();
         do
         {
             ListaCompra listaCompra = new ListaCompra();
@@ -34,6 +33,8 @@ public class ListarLista extends AppCompatActivity {
             listaCompra.inserirDesc(desc);
             String anoMes = cursor.getString(cursor.getColumnIndex("amlista"));
             listaCompra.inserirAnoMes(anoMes);
+            int id = cursor.getInt(cursor.getColumnIndex("codLista"));
+            listaCompra.inserirId(id);
             lista.add(listaCompra);
         }
         while
@@ -49,10 +50,11 @@ public class ListarLista extends AppCompatActivity {
                 Log.i("teste","aqui"+position);
                 TextView anomes =(TextView) view.findViewById(R.id.textAnoMes);
                 TextView desc = (TextView) view.findViewById(R.id.textDescricao);
+                TextView codigo = (TextView) view.findViewById(R.id.CodigoLista);
                 Intent intent =new Intent(ListarLista.this, ListarIten.class);
-                Log.i("vava",anomes.getText().toString());
-                String text = anomes.getText().toString();
-                intent.putExtra("anomes",text);
+                Log.i("vava",codigo.getText().toString());
+                String text = codigo.getText().toString();
+                intent.putExtra("id",text);
                 //intent.putExtra("desc",desc.getText().toString());
                 startActivity(intent);
 

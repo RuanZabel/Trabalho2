@@ -8,25 +8,27 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Abapter extends ArrayAdapter<ListaCompra> {
+public class AdapterItens extends ArrayAdapter<ItensCompra> {
     private Context context;
     private int reusourse;
-    public  Abapter(Context context, int reusorce, ArrayList<ListaCompra> lista){
+    public  AdapterItens(Context context, int reusorce, ArrayList<ItensCompra> lista){
         super(context,reusorce,lista);
         this.context = context;
         this.reusourse = reusorce;
     }
+
     public View getView(int position, View convertView, ViewGroup parent){
         LayoutInflater inflater = LayoutInflater.from(context);
         convertView = inflater.inflate(reusourse,parent,false);
-        TextView textAnomes =(TextView) convertView.findViewById(R.id.textAnoMes);
-        TextView textdesc =(TextView) convertView.findViewById(R.id.textDescricao);
-        TextView id = (TextView) convertView.findViewById(R.id.CodigoLista);
-        ListaCompra l=getItem(position);
-        textAnomes.setText(l.buscarAnoMes());
-        textdesc.setText(l.buscarDesc());
-        id.setText(String.valueOf(l.buscarId()));
+        TextView produto =(TextView) convertView.findViewById(R.id.textAnoMes);
+        TextView qtd =(TextView) convertView.findViewById(R.id.textDescricao);
+
+        ItensCompra l=getItem(position);
+        produto.setText(l.getProduto());
+        qtd.setText(String.valueOf(l.getQuantidade()));
+        //id.setText(String.valueOf(l.buscarId()));
         return  convertView;
     }
 }

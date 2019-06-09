@@ -5,7 +5,7 @@ android:layout_width="match_parent"
 android:layout_height="wrap_content"
 android:orientation="horizontal">
 
-<TextView
+    <TextView
     android:id="@+id/textAnoMes"
     android:layout_width="14dp"
     android:layout_height="wrap_content"
@@ -18,5 +18,12 @@ android:orientation="horizontal">
     android:textSize="16sp"
     android:layout_width="40dp"
     android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/CodigoLista"
+        android:layout_weight="1"
+        android:textSize="16sp"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"/>
 
 </LinearLayout>

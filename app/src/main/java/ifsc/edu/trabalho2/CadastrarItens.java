@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class CadastrarItens extends AppCompatActivity {
@@ -29,5 +30,17 @@ public class CadastrarItens extends AppCompatActivity {
         base.execSQL("insert into itensLista(produto,qtd,codLista)values('"+produto.getText().toString()+"',"+Integer.parseInt(qtd.getText().toString())+"," +
                 idLista+")");
 
+    }
+
+    public void botaoVoltar(View view) {
+        Button botao = (Button) findViewById(R.id.Voltar);
+        botao.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(CadastrarItens.this, MainActivity.class);
+                startActivity(intent);
+            }
+
+        });
     }
 }
