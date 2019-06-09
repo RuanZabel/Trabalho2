@@ -19,6 +19,8 @@ public class ListarIten extends AppCompatActivity {
         ArrayList<ListaCompra> lista = new ArrayList<ListaCompra>();
         banco = new Banco(this);
         base = banco.conecao();
+        Bundle bundle = getIntent();
+
         Intent intent = getIntent();
         String idLista = intent.getStringExtra("anomes");
         //String id= intent.getStringExtra("desc");
