@@ -43,7 +43,6 @@ public class ListarLista extends AppCompatActivity {
         Abapter abapter=new Abapter(this,R.layout.listar,lista);
         view.setAdapter(abapter);
 
-        view.setAdapter(abapter);
         view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
